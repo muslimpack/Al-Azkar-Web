@@ -46,19 +46,26 @@ function generateContent(titleId, data) {
 // Function to create title cards
 function createTitleCards(data) {
   const { titles } = data;
-  // Construct the HTML for title cards
-  const titleCardsHTML = titles
-    .map(
-      (title) => `
-        <div class="title-card" onclick="loadContent(${title.id}, data)">
-            <h2>${title.name}</h2>
-        </div>
-    `
-    )
-    .join("");
 
-  // Display title cards
-  document.querySelector("main").innerHTML = titleCardsHTML;
+  // Create a container for title cards
+  const titleCardsContainer = document.createElement("div");
+  titleCardsContainer.classList.add("title-cards-container");
+
+  // Construct and append the HTML for title cards
+  titles.forEach((title) => {
+    const titleCard = document.createElement("div");
+    titleCard.classList.add("title-card");
+
+    // Set the title as the title card text
+    titleCard.innerHTML = `<h2>${title.name}</h2>`;
+    titleCard.addEventListener("click", () => loadContent(title.id, data));
+    titleCardsContainer.appendChild(titleCard);
+  });
+
+  // Display title cards container
+  const main = document.querySelector("main");
+  main.innerHTML = ""; // Clear existing content
+  main.appendChild(titleCardsContainer);
 }
 
 // Initialize by loading JSON data and creating title cards

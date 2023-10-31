@@ -14,8 +14,49 @@ header {
   background-color: #8b735b; /* Brown tone for the header */
   text-align: center;
   padding: 10px;
+  border-radius: 25px;
 }
 
 main {
   padding: 20px;
+}
+
+/* Update title card styles */
+.title-card {
+  width: 200px; /* Set a fixed width */
+  height: 50px; /* Set a fixed height */
+  background-color: #f0e6d1; /* Light background color */
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #d3c0a0; /* Border with a lighter color */
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+  overflow: hidden;
+}
+
+.title-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #2e2e2e; /* Dark text color */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Display ellipsis for overflowing text */
+}
+
+.title-card:hover {
+  background-color: #d3c0a0; /* Lighter background color on hover */
+}
+
+/* Center the title cards container */
+.title-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
