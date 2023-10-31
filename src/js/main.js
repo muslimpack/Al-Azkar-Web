@@ -72,8 +72,13 @@ function generateContent(titleId, data) {
     .join("");
 
   const backButton = `
-    <div class="back-button" onclick="loadTitles()">
-        العودة
+    <div class="content-header"">
+      <div class="title">
+          ${titleId}
+      </div>
+      <div class="back-button" onclick="loadTitles()">
+          العودة
+      </div>
     </div>
     `;
 

@@ -121,12 +121,26 @@ main {
 /* Back Button */
 /* **************** */
 
-.back-button {
+.content-header {
   margin: 10px;
-  width: 100px;
+  display: flex;
+  flex-direction: row;
+}
+.content-header .title {
+  width: 100%;
+  height: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #8b735b;
+  margin-left: 10px;
+}
+
+.content-header .back-button {
+  width: fit-content;
+  height: 25px;
+  padding: 10px;
   border-radius: 10px;
   background-color: #8b735b;
   font-weight: bold;
-  padding: 10px;
   cursor: pointer;
 }
