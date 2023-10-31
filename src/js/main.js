@@ -59,10 +59,10 @@ function generateContent(title, data) {
       return `
 <div class="content-item" onclick="decrementCount(${item.id})">
     <div class="content-card">
+      <div class="header">
+      <span class="count">${item.count}</span>
         <p class="content-body">${item.body}</p>
-        <div class="counter">
-            <span class="count">${item.count}</span>
-        </div>
+      </div>
         ${fadlElement}
         ${sourceElement}
     </div>
