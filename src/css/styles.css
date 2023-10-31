@@ -125,6 +125,8 @@ main {
   margin: 10px;
   display: flex;
   flex-direction: row;
+  font-size: 18px;
+  font-weight: bold;
 }
 .content-header .title {
   width: 100%;
@@ -133,6 +135,9 @@ main {
   border-radius: 10px;
   background-color: #8b735b;
   margin-left: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .content-header .back-button {
@@ -141,6 +146,5 @@ main {
   padding: 10px;
   border-radius: 10px;
   background-color: #8b735b;
-  font-weight: bold;
   cursor: pointer;
 }

@@ -43,10 +43,10 @@ function updateCount(itemId, count) {
   }
 }
 // Function to generate content for a given title ID
-function generateContent(titleId, data) {
+function generateContent(title, data) {
   const { contents } = data;
   // Find content related to the selected titleId
-  const titleContent = contents.filter((item) => item.titleId === titleId);
+  const titleContent = contents.filter((item) => item.titleId === title.id);
 
   // Construct the HTML for content
   const contentHTML = titleContent
@@ -74,7 +74,7 @@ function generateContent(titleId, data) {
   const backButton = `
     <div class="content-header"">
       <div class="title">
-          ${titleId}
+          ${title.name}
       </div>
       <div class="back-button" onclick="loadTitles()">
           العودة
@@ -101,7 +101,7 @@ function createTitleCards(data) {
 
     // Set the title as the title card text
     titleCard.innerHTML = `<h2>${title.name}</h2>`;
-    titleCard.addEventListener("click", () => loadContent(title.id, data));
+    titleCard.addEventListener("click", () => loadContent(title, data));
     titleCardsContainer.appendChild(titleCard);
   });
 
@@ -117,8 +117,8 @@ loadJSONData().then((data) => {
 });
 
 // Function to load content for a specific title
-function loadContent(titleId, data) {
-  generateContent(titleId, data);
+function loadContent(title, data) {
+  generateContent(title, data);
 }
 
 function loadTitles() {
