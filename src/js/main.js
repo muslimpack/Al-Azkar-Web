@@ -50,24 +50,35 @@ function generateContent(titleId, data) {
 
   // Construct the HTML for content
   const contentHTML = titleContent
-    .map(
-      (item) => `
+    .map((item) => {
+      const fadlElement = item.fadl ? `<p class="source">${item.fadl}</p>` : "";
+      const sourceElement = item.source
+        ? `<p class="source">${item.source}</p>`
+        : "";
+
+      return `
 <div class="content-item" onclick="decrementCount(${item.id})">
     <div class="content-card">
         <p class="content-body">${item.body}</p>
         <div class="counter">
             <span class="count">${item.count}</span>
         </div>
-        <p class="source">${item.fadl}</p>
-        <p class="source">${item.source}</p>
+        ${fadlElement}
+        ${sourceElement}
     </div>
 </div>
-    `
-    )
+    `;
+    })
     .join("");
 
+  const backButton = `
+    <div class="back-button" onclick="loadTitles()">
+        العودة
+    </div>
+    `;
+
   // Display the content
-  document.querySelector("main").innerHTML = contentHTML;
+  document.querySelector("main").innerHTML = backButton + contentHTML;
 }
 
 // Function to create title cards
@@ -103,4 +114,10 @@ loadJSONData().then((data) => {
 // Function to load content for a specific title
 function loadContent(titleId, data) {
   generateContent(titleId, data);
+}
+
+function loadTitles() {
+  loadJSONData().then((data) => {
+    createTitleCards(data);
+  });
 }

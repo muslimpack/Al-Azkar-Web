@@ -1,3 +1,10 @@
+:root {
+  --background: #201b18;
+  --background-2: #2b211f;
+  --text: #d6c3bb;
+  --light: #fdb6a6;
+}
+
 body {
   background-color: #2e2e2e; /* Dark background color */
   color: #d2c5a9; /* Light text color */
@@ -97,7 +104,7 @@ main {
 }
 
 .content-body {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
   margin: 10px 0;
   color: #2e2e2e;
@@ -108,4 +115,18 @@ main {
 }
 .source {
   color: #2e2e2e;
+}
+
+/* **************** */
+/* Back Button */
+/* **************** */
+
+.back-button {
+  margin: 10px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: #8b735b;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
 }
