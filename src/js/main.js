@@ -21,6 +21,27 @@ async function loadJSONData() {
   }
 }
 
+function decrementCount(itemId) {
+  const item = findContentItem(itemId);
+  if (item) {
+    if (item.count > 0) {
+      item.count--;
+      updateCount(itemId, item.count);
+    }
+  }
+}
+// Function to find the content item by its ID
+function findContentItem(itemId) {
+  return titleContent.find((item) => item.id === itemId);
+}
+
+// Function to update the count in the DOM
+function updateCount(itemId, count) {
+  const countElement = document.querySelector(`#item-${itemId} .count`);
+  if (countElement) {
+    countElement.textContent = count;
+  }
+}
 // Function to generate content for a given title ID
 function generateContent(titleId, data) {
   const { contents } = data;
@@ -31,10 +52,16 @@ function generateContent(titleId, data) {
   const contentHTML = titleContent
     .map(
       (item) => `
-        <div class="content-item">
-            <p>${item.body}</p>
-            <p><strong>Source:</strong> ${item.source}</p>
+<div class="content-item" onclick="decrementCount(${item.id})">
+    <div class="content-card">
+        <p class="content-body">${item.body}</p>
+        <div class="counter">
+            <span class="count">${item.count}</span>
         </div>
+        <p class="source">${item.fadl}</p>
+        <p class="source">${item.source}</p>
+    </div>
+</div>
     `
     )
     .join("");
