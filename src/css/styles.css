@@ -38,6 +38,17 @@ header {
   text-align: center;
   padding: 10px;
   border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header img {
+  height: 120px;
+}
+
+header .title {
+  width: 100%;
 }
 
 main {
