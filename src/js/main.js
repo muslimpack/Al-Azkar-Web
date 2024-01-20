@@ -15,6 +15,10 @@ async function loadJSONData() {
     const titlesData = await titlesResponse.json();
     const contentsData = await contentsResponse.json();
 
+    // Sort the data by orderId
+    titlesData.sort((a, b) => a.order - b.order);
+    contentsData.sort((a, b) => a.order - b.order);
+
     return { titles: titlesData, contents: contentsData };
   } catch (error) {
     console.error("Error loading JSON data:", error);
